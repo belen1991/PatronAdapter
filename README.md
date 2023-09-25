@@ -1,2 +1,2 @@
-# PatronBuilder
-Ejercicio en .Net para demostrar el uso del patron builder
+# PatronAdapter
+Ejercicio en .Net para demostrar el uso del patron adapter
