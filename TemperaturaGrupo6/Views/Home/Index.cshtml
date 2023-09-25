@@ -1,0 +1,47 @@
+﻿@model IEnumerable<TemperaturaGrupo6.Models.DispositivoTemperatura>
+
+@{
+    ViewData["Title"] = "Lista de Dispositivos";
+}
+
+<h1>Lista de Dispositivos</h1>
+
+<p>
+    <a asp-action="Dispositivo">Crear Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreDispositivo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Temperatura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TemperaturaCelsius)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreDispositivo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Temperatura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TemperaturaCelsius)
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

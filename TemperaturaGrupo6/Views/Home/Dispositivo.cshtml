@@ -1,0 +1,49 @@
+﻿@using TemperaturaGrupo6.Enums;
+@model TemperaturaGrupo6.Models.DispositivoTemperatura
+
+@{
+    ViewData["Title"] = "Dispositivo";
+}
+
+<h1>Dispositivo</h1>
+
+<h4>DispositivoTemperatura</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Dispositivo">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="tipo" class="control-label">Tipo:</label>
+                @Html.DropDownListFor(model => model.tipo, Enum.GetValues(
+                   typeof(DispositivosTemperaturaEnum)).Cast<DispositivosTemperaturaEnum>()
+                   .Select(e => new SelectListItem
+                    {
+                        Text = Enum.GetName(typeof(DispositivosTemperaturaEnum), e),
+                        Value = ((int)e).ToString()
+                    }), new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label asp-for="NombreDispositivo" class="control-label"></label>
+                <input asp-for="NombreDispositivo" class="form-control" />
+                <span asp-validation-for="NombreDispositivo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Temperatura" class="control-label"></label>
+                <input asp-for="Temperatura" class="form-control" />
+                <span asp-validation-for="Temperatura" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Regresar a la Lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
